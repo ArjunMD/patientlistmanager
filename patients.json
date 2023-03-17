@@ -1,0 +1,38 @@
+[
+    {
+        "initials": "Arjun Bahl",
+        "problems": [
+            {
+                "text": "AKI",
+                "assessment_and_plan": "Baseline Cr/eGFR:\r\nAdmit Cr/eGFR:\r\nCurrent Cr/eGFR:\r\n1-2 day Trend:\r\nEtiology: \r\nBladder/Kidney ultrasound: Deferred\r\nUA: No casts\r\nActive management: 3L IVF in last 2 days. Foley inserted.\r\nAvoid nephrotoxic meds\r\nConsider hydration for any contrast administration"
+            }
+        ],
+        "labs": [],
+        "micro": [],
+        "imaging": [],
+        "todos": [
+            {
+                "text": "Monitor Cr",
+                "completed": false
+            }
+        ]
+    },
+    {
+        "initials": "Garima Ajmani",
+        "problems": [
+            {
+                "text": "HTN",
+                "assessment_and_plan": "Home meds: Lisinopril\r\nCurrent scheduled meds: None\r\nGoal: <160/80 while inpatient\r\nPRNs: None"
+            }
+        ],
+        "labs": [],
+        "micro": [],
+        "imaging": [],
+        "todos": [
+            {
+                "text": "Volume exam",
+                "completed": true
+            }
+        ]
+    }
+]

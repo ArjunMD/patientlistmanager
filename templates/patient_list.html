@@ -1,0 +1,27 @@
+<!-- patient_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List Manager</title>
+</head>
+<body>
+    <h1>Patient List</h1>
+    <ul>
+        {% for patient in patients %}
+            <li>
+                <a href="{{ url_for('patient_detail', initials=patient.initials) }}">{{ patient.initials }}</a>
+                <form action="{{ url_for('delete_patient', initials=patient.initials) }}" method="post" style="display:inline;">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add_patient') }}" method="post">
+        <label for="initials">Patient Initials:</label>
+        <input type="text" id="initials" name="initials" required autofocus>
+        <input type="submit" value="Add Patient">
+    </form>
+</body>
+</html>
