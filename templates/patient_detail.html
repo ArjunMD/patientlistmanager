@@ -7,23 +7,42 @@
 </head>
 <body>
     <h1>{{ patient.initials }}</h1>
-    <h2>Problems</h2>
+    <h2>Hospital Problems</h2>
     <ul>
-        {% for problem in patient.problems %}
+        {% for problem in patient.hospital_problems %}
             <li>{{ problem.text }} <br>
-            <form action="{{ url_for('update_assessment_and_plan', initials=patient.initials) }}" method="post">
-                <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
-                <label for="assessment_and_plan">A/P:</label><br>
-                <textarea id="assessment_and_plan" name="assessment_and_plan" rows="4" cols="50">{{ problem.assessment_and_plan }}</textarea>
-                <input type="submit" value="Save">
-            </form>
+                <form action="{{ url_for('update_assessment_and_plan', initials=patient.initials) }}" method="post">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <label for="hospital_assessment_and_plan">A/P:</label><br>
+                    <textarea id="hospital_assessment_and_plan" name="assessment_and_plan" rows="4" cols="50">{{ problem.assessment_and_plan }}</textarea>
+                    <input type="submit" value="Save">
+                </form>
             </li>
         {% endfor %}
     </ul>
-    <form action="{{ url_for('add_problem', initials=patient.initials) }}" method="post">
-        <label for="problem">Problem:</label>
-        <input type="text" id="problem" name="problem" required autofocus>
-        <input type="submit" value="Add Problem">
+    <form action="{{ url_for('add_hospital_problem', initials=patient.initials) }}" method="post">
+        <label for="hospital_problem">Hospital Problem:</label>
+        <input type="text" id="hospital_problem" name="problem" required autofocus>
+        <input type="submit" value="Add Hospital Problem">
+    </form>
+
+    <h2>Chronic Problems</h2>
+    <ul>
+        {% for problem in patient.chronic_problems %}
+            <li>{{ problem.text }} <br>
+                <form action="{{ url_for('update_assessment_and_plan', initials=patient.initials) }}" method="post">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <label for="chronic_assessment_and_plan">A/P:</label><br>
+                    <textarea id="chronic_assessment_and_plan" name="assessment_and_plan" rows="4" cols="50">{{ problem.assessment_and_plan }}</textarea>
+                    <input type="submit" value="Save">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add_chronic_problem', initials=patient.initials) }}" method="post">
+        <label for="chronic_problem">Chronic Problem:</label>
+        <input type="text" id="chronic_problem" name="problem" required autofocus>
+        <input type="submit" value="Add Chronic Problem">
     </form>
 
     {% for data_type in ['labs', 'micro', 'imaging'] %}

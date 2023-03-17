@@ -28,7 +28,8 @@ def patient_list():
 @app.route('/add', methods=['POST'])
 def add_patient():
     initials = request.form['initials']
-    patients.append({'initials': initials, 'problems': [], 'labs': [], 'micro': [], 'imaging': []})
+    patients.append(
+        {'initials': initials, 'hospital_problems': [], 'chronic_problems': [], 'labs': [], 'micro': [], 'imaging': []})
     save_patients(patients)
     return redirect(url_for('patient_list'))
 
@@ -47,12 +48,22 @@ def patient_detail(initials):
     return render_template('patient_detail.html', patient=patient)
 
 
-@app.route('/patient/<initials>/add_problem', methods=['POST'])
-def add_problem(initials):
+@app.route('/patient/<initials>/add_hospital_problem', methods=['POST'])
+def add_hospital_problem(initials):
     problem = request.form['problem']
     patient = [p for p in patients if p['initials'] == initials][0]
     assessment_and_plan = auto_generate_assessment_and_plan(problem)
-    patient['problems'].append({'text': problem, 'assessment_and_plan': assessment_and_plan})
+    patient['hospital_problems'].append({'text': problem, 'assessment_and_plan': assessment_and_plan})
+    save_patients(patients)
+    return redirect(url_for('patient_detail', initials=initials))
+
+
+@app.route('/patient/<initials>/add_chronic_problem', methods=['POST'])
+def add_chronic_problem(initials):
+    problem = request.form['problem']
+    patient = [p for p in patients if p['initials'] == initials][0]
+    assessment_and_plan = auto_generate_assessment_and_plan(problem)
+    patient['chronic_problems'].append({'text': problem, 'assessment_and_plan': assessment_and_plan})
     save_patients(patients)
     return redirect(url_for('patient_detail', initials=initials))
 
