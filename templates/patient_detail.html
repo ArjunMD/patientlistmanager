@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Detail</title>
+
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left-section,
+        .right-section {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
     <h1>{{ patient.initials }}</h1>
+    <div class="container">
+    <div class="left-section">
     <h2>Hospital Problems</h2>
     <ul>
         {% for problem in patient.hospital_problems %}
@@ -17,6 +31,18 @@
                     <textarea id="hospital_assessment_and_plan" name="assessment_and_plan" rows="4" cols="50">{{ problem.assessment_and_plan }}</textarea>
                     <input type="submit" value="Save">
                 </form>
+                <form action="{{ url_for('move_problem', initials=patient.initials) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="source" value="hospital_problems">
+                    <input type="hidden" name="target" value="chronic_problems">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <input type="submit" value="Move to Chronic">
+                </form>
+                <form action="{{ url_for('move_problem', initials=patient.initials) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="source" value="hospital_problems">
+                    <input type="hidden" name="target" value="resolved_problems">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <input type="submit" value="Move to Resolved">
+                </form>
             </li>
         {% endfor %}
     </ul>
@@ -25,6 +51,7 @@
         <input type="text" id="hospital_problem" name="problem" required autofocus>
         <input type="submit" value="Add Hospital Problem">
     </form>
+
 
     <h2>Chronic Problems</h2>
     <ul>
@@ -36,6 +63,18 @@
                     <textarea id="chronic_assessment_and_plan" name="assessment_and_plan" rows="4" cols="50">{{ problem.assessment_and_plan }}</textarea>
                     <input type="submit" value="Save">
                 </form>
+                <form action="{{ url_for('move_problem', initials=patient.initials) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="source" value="chronic_problems">
+                    <input type="hidden" name="target" value="hospital_problems">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <input type="submit" value="Move to Hospital">
+                </form>
+                <form action="{{ url_for('move_problem', initials=patient.initials) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="source" value="chronic_problems">
+                    <input type="hidden" name="target" value="resolved_problems">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <input type="submit" value="Move to Resolved">
+                </form>
             </li>
         {% endfor %}
     </ul>
@@ -45,8 +84,43 @@
         <input type="submit" value="Add Chronic Problem">
     </form>
 
+    <h2>Resolved Problems</h2>
+    <ul>
+        {% for problem in patient.resolved_problems %}
+            <li>{{ problem.text }} <br>
+                <form action="{{ url_for('update_assessment_and_plan', initials=patient.initials) }}" method="post">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <label for="resolved_assessment_and_plan">A/P:</label><br>
+                    <textarea id="resolved_assessment_and_plan" name="assessment_and_plan" rows="4" cols="50">{{ problem.assessment_and_plan }}</textarea>
+                    <input type="submit" value="Save">
+                </form>
+                <form action="{{ url_for('move_problem', initials=patient.initials) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="source" value="resolved_problems">
+                    <input type="hidden" name="target" value="hospital_problems">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <input type="submit" value="Move to Hospital">
+                </form>
+                <form action="{{ url_for('move_problem', initials=patient.initials) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="source" value="resolved_problems">
+                    <input type="hidden" name="target" value="chronic_problems">
+                    <input type="hidden" name="problem_index" value="{{ loop.index0 }}">
+                    <input type="submit" value="Move to Chronic">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+
+    <div class="right-section">
     {% for data_type in ['labs', 'micro', 'imaging'] %}
         <h2>{{ data_type.capitalize() }}</h2>
+
+        {% if data_type == 'labs' %}
+            <small>Not meant for basic daily labs</small>
+        {% elif data_type == 'micro' %}
+            <small>Suggested formatting MM/DD Study Significant Finding</small>
+        {% endif %}
+
         <ul>
             {% for data in patient[data_type] %}
                 <li>{{ data }}</li>
@@ -82,7 +156,8 @@
     <form action="{{ url_for('clear_todos', initials=patient.initials) }}" method="post">
         <input type="submit" value="Clear To Do List">
     </form>
-
+    </div>
+    </div>
     <p><a href="{{ url_for('patient_list') }}">Back to Patient List</a></p>
 
 

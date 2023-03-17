@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from assessment_and_plan import auto_generate_assessment_and_plan
 import json
 
+
 def load_patients():
     try:
         with open("patients.json", "r") as f:
@@ -28,8 +29,9 @@ def patient_list():
 @app.route('/add', methods=['POST'])
 def add_patient():
     initials = request.form['initials']
-    patients.append(
-        {'initials': initials, 'hospital_problems': [], 'chronic_problems': [], 'labs': [], 'micro': [], 'imaging': []})
+    patients.append({'initials': initials, 'hospital_problems': [], 'chronic_problems': [], 'resolved_problems': [],
+                     'labs': [], 'micro': [], 'imaging': []})
+
     save_patients(patients)
     return redirect(url_for('patient_list'))
 
@@ -64,6 +66,18 @@ def add_chronic_problem(initials):
     patient = [p for p in patients if p['initials'] == initials][0]
     assessment_and_plan = auto_generate_assessment_and_plan(problem)
     patient['chronic_problems'].append({'text': problem, 'assessment_and_plan': assessment_and_plan})
+    save_patients(patients)
+    return redirect(url_for('patient_detail', initials=initials))
+
+
+@app.route('/patient/<initials>/move_problem', methods=['POST'])
+def move_problem(initials):
+    source = request.form['source']
+    target = request.form['target']
+    problem_index = int(request.form['problem_index'])
+    patient = [p for p in patients if p['initials'] == initials][0]
+    problem = patient[source].pop(problem_index)
+    patient[target].append(problem)
     save_patients(patients)
     return redirect(url_for('patient_detail', initials=initials))
 

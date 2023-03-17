@@ -3,10 +3,6 @@
         "initials": "Arjun",
         "hospital_problems": [
             {
-                "text": "AKI",
-                "assessment_and_plan": "Baseline Cr/eGFR:\nAdmit Cr/eGFR:\nCurrent Cr/eGFR:\n1-2 day Trend:\nEtiology: \nBladder/Kidney ultrasound: Deferred\nUA: No casts\nActive management: 3L IVF in last 2 days. Foley inserted.\nAvoid nephrotoxic meds\nConsider hydration for any contrast administration"
-            },
-            {
                 "text": "Cirrhosis",
                 "assessment_and_plan": ""
             }
@@ -15,14 +11,18 @@
             {
                 "text": "HTN",
                 "assessment_and_plan": "Home meds:\nCurrent scheduled meds:\nGoal:\nPRNs:"
-            },
+            }
+        ],
+        "resolved_problems": [
             {
-                "text": "DM2",
-                "assessment_and_plan": ""
+                "text": "AKI",
+                "assessment_and_plan": "Baseline Cr/eGFR:\nAdmit Cr/eGFR:\nCurrent Cr/eGFR:\n1-2 day Trend:\nEtiology: \nBladder/Kidney ultrasound: Deferred\nUA: No casts\nActive management: 3L IVF in last 2 days. Foley inserted.\nAvoid nephrotoxic meds\nConsider hydration for any contrast administration"
             }
         ],
         "labs": [],
         "micro": [],
-        "imaging": []
+        "imaging": [
+            "3/17 TTE EF 55%"
+        ]
     }
 ]
