@@ -87,7 +87,18 @@ def update_assessment_and_plan(initials):
     problem_index = int(request.form['problem_index'])
     assessment_and_plan = request.form['assessment_and_plan']
     patient = [p for p in patients if p['initials'] == initials][0]
-    patient['problems'][problem_index]['assessment_and_plan'] = assessment_and_plan
+
+    if problem_index < len(patient['hospital_problems']):
+        problem_type = 'hospital_problems'
+    elif problem_index < len(patient['hospital_problems']) + len(patient['chronic_problems']):
+        problem_index -= len(patient['hospital_problems'])
+        problem_type = 'chronic_problems'
+    else:
+        problem_index -= len(patient['hospital_problems']) + len(patient['chronic_problems'])
+        problem_type = 'resolved_problems'
+
+    patient[problem_type][problem_index]['assessment_and_plan'] = assessment_and_plan
+
     save_patients(patients)
     return redirect(url_for('patient_detail', initials=initials))
 

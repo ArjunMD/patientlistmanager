@@ -1,103 +1,10 @@
 [
     {
-        "initials": "Garima Ajmani",
-        "hospital_problems": [
-            {
-                "text": "CHF",
-                "assessment_and_plan": "Phenotype: HFrEF\nChronic etiology: Ischemic, HOCM, Sarcoid, Drug-related\nAcute etiology: https://www.timeofcare.com/failures-acute-heart-failure-is-precipitated-by-failures/\nLast TTE: Date, EF, LVEDD, Other significant findings\nPreload: Edema, IVC, Dry weight, Current weight, 24h I/O, Loop diuretics, Nephron blockade\nContractility: Beta-blockers (Don't reflexively discontinue)\nAfterload/GDMT:\nMonitoring: Sodium, Potassium, Creatinine"
-            },
-            {
-                "text": "UTI",
-                "assessment_and_plan": "Symptoms:\nUA results:\nUCx/Sensi results:\nAbx: "
-            }
-        ],
-        "chronic_problems": [],
-        "resolved_problems": [
-            {
-                "text": "CHF",
-                "assessment_and_plan": "Phenotype: HFrEF\nChronic etiology: Ischemic, HOCM, Sarcoid, Drug-related\nAcute etiology: https://www.timeofcare.com/failures-acute-heart-failure-is-precipitated-by-failures/\nLast TTE: Date, EF, LVEDD, Other significant findings\nPreload: Edema, IVC, Dry weight, Current weight, 24h I/O, Loop diuretics, Nephron blockade\nContractility: Beta-blockers (Don't reflexively discontinue)\nAfterload/GDMT:\nMonitoring: Sodium, Potassium, Creatinine"
-            },
-            {
-                "text": "Cirrhosis",
-                "assessment_and_plan": ""
-            }
-        ],
-        "labs": [],
-        "micro": [],
-        "imaging": [
-            "TTE 8/6 Normal EF"
-        ],
-        "todos": [
-            {
-                "text": "Walking O2 test",
-                "completed": false
-            },
-            {
-                "text": "Goal NN -2L",
-                "completed": false
-            }
-        ]
-    },
-    {
-        "initials": "Shivani Bahl",
-        "hospital_problems": [],
-        "chronic_problems": [],
-        "resolved_problems": [],
-        "labs": [],
-        "micro": [],
-        "imaging": [],
-        "todos": [
-            {
-                "text": "NTD",
-                "completed": false
-            }
-        ]
-    },
-    {
-        "initials": "Ken Steinberg",
-        "hospital_problems": [],
-        "chronic_problems": [],
-        "resolved_problems": [
-            {
-                "text": "AKI",
-                "assessment_and_plan": "Baseline Cr/eGFR:\nAdmit Cr/eGFR:\nCurrent Cr/eGFR:\n1-2 day Trend:\nEtiology: \nBladder/Kidney ultrasound: Deferred\nUA: No casts\nActive management: 3L IVF in last 2 days. Foley inserted.\nAvoid nephrotoxic meds\nConsider hydration for any contrast administration"
-            }
-        ],
-        "labs": [],
-        "micro": [],
-        "imaging": [],
-        "todos": [
-            {
-                "text": "I/O check 2pm",
-                "completed": false
-            },
-            {
-                "text": "2pm BMP",
-                "completed": false
-            }
-        ]
-    },
-    {
-        "initials": "Gabby Berger",
-        "hospital_problems": [],
-        "chronic_problems": [],
-        "resolved_problems": [],
-        "labs": [],
-        "micro": [],
-        "imaging": [],
-        "todos": [
-            {
-                "text": "Consult Nephro",
-                "completed": false
-            }
-        ]
-    },
-    {
         "initials": "Arjun Bahl",
         "hospital_problems": [
             {
-                "text": "AKI",
-                "assessment_and_plan": "Baseline Cr/eGFR:\nAdmit Cr/eGFR:\nCurrent Cr/eGFR:\n1-2 day Trend:\nEtiology: \nBladder/Kidney ultrasound: Deferred\nUA: No casts\nActive management: 3L IVF in last 2 days. Foley inserted.\nAvoid nephrotoxic meds\nConsider hydration for any contrast administration"
+                "text": "CHF",
+                "assessment_and_plan": "Home meds:\r\nCurrent scheduled meds:\r\nGoal:\r\nPRNs:"
             }
         ],
         "chronic_problems": [
@@ -106,15 +13,50 @@
                 "assessment_and_plan": "Home meds:\nCurrent scheduled meds:\nGoal:\nPRNs:"
             }
         ],
-        "resolved_problems": [],
+        "resolved_problems": [
+            {
+                "text": "AKI",
+                "assessment_and_plan": "Baseline Cr/eGFR: 1.5\r\nAdmit Cr/eGFR:\r\nCurrent Cr/eGFR:\r\n1-2 day Trend:\r\nEtiology: \r\nBladder/Kidney ultrasound: Deferred\r\nUA: No casts\r\nActive management: 3L IVF in last 2 days. Foley inserted.\r\nAvoid nephrotoxic meds\r\nConsider hydration for any contrast administration"
+            }
+        ],
         "labs": [],
         "micro": [],
         "imaging": [],
         "todos": [
             {
-                "text": "Cefepime --> Ceftriaxone",
+                "text": "Note",
+                "completed": true
+            },
+            {
+                "text": "Family",
+                "completed": false
+            },
+            {
+                "text": "Cores",
+                "completed": false
+            },
+            {
+                "text": "Monitor Labs",
                 "completed": false
             }
         ]
+    },
+    {
+        "initials": "Garima Ajmani",
+        "hospital_problems": [],
+        "chronic_problems": [],
+        "resolved_problems": [],
+        "labs": [],
+        "micro": [],
+        "imaging": []
+    },
+    {
+        "initials": "Shivani Bahl",
+        "hospital_problems": [],
+        "chronic_problems": [],
+        "resolved_problems": [],
+        "labs": [],
+        "micro": [],
+        "imaging": []
     }
 ]
