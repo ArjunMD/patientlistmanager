@@ -107,7 +107,12 @@ def add_todo(initials):
     patient = [p for p in patients if p['initials'] == initials][0]
     patient.setdefault('todos', []).append({'text': todo, 'completed': False})
     save_patients(patients)
-    return redirect(url_for('patient_detail', initials=initials))
+
+    from_page = request.form.get('from_page')
+    if from_page == 'patient_list':
+        return redirect(url_for('patient_list'))
+    else:
+        return redirect(url_for('patient_detail', initials=initials))
 
 
 @app.route('/patient/<initials>/toggle_todo/<int:todo_index>', methods=['POST'])
@@ -115,7 +120,12 @@ def toggle_todo(initials, todo_index):
     patient = [p for p in patients if p['initials'] == initials][0]
     patient['todos'][todo_index]['completed'] = not patient['todos'][todo_index]['completed']
     save_patients(patients)
-    return redirect(url_for('patient_detail', initials=initials))
+
+    from_page = request.form.get('from_page')
+    if from_page == 'patient_list':
+        return redirect(url_for('patient_list'))
+    else:
+        return redirect(url_for('patient_detail', initials=initials))
 
 
 @app.route('/patient/<initials>/clear_todos', methods=['POST'])
@@ -123,7 +133,12 @@ def clear_todos(initials):
     patient = [p for p in patients if p['initials'] == initials][0]
     patient['todos'] = []
     save_patients(patients)
-    return redirect(url_for('patient_detail', initials=initials))
+
+    from_page = request.form.get('from_page')
+    if from_page == 'patient_list':
+        return redirect(url_for('patient_list'))
+    else:
+        return redirect(url_for('patient_detail', initials=initials))
 
 
 if __name__ == '__main__':

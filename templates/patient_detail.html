@@ -48,7 +48,7 @@
     </ul>
     <form action="{{ url_for('add_hospital_problem', initials=patient.initials) }}" method="post">
         <label for="hospital_problem">Hospital Problem:</label>
-        <input type="text" id="hospital_problem" name="problem" required autofocus>
+        <input type="text" id="hospital_problem" name="problem" required>
         <input type="submit" value="Add Hospital Problem">
     </form>
 
@@ -143,6 +143,7 @@
                     {{ todo.text }}
                 {% endif %}
                 <form action="{{ url_for('toggle_todo', initials=patient.initials, todo_index=loop.index0) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="from_page" value="patient_detail">
                     <input type="submit" value="{% if todo.completed %}Uncheck{% else %}Check{% endif %}">
                 </form>
             </li>
@@ -151,9 +152,11 @@
     <form action="{{ url_for('add_todo', initials=patient.initials) }}" method="post">
         <label for="todo">Add To Do:</label>
         <input type="text" id="todo" name="todo" required>
+        <input type="hidden" name="from_page" value="patient_detail">
         <input type="submit" value="Add To Do">
     </form>
     <form action="{{ url_for('clear_todos', initials=patient.initials) }}" method="post">
+        <input type="hidden" name="from_page" value="patient_detail">
         <input type="submit" value="Clear To Do List">
     </form>
     </div>
