@@ -1,15 +1,39 @@
 [
     {
         "initials": "Garima Ajmani",
-        "hospital_problems": [],
+        "hospital_problems": [
+            {
+                "text": "CHF",
+                "assessment_and_plan": "Phenotype: HFrEF\nChronic etiology: Ischemic, HOCM, Sarcoid, Drug-related\nAcute etiology: https://www.timeofcare.com/failures-acute-heart-failure-is-precipitated-by-failures/\nLast TTE: Date, EF, LVEDD, Other significant findings\nPreload: Edema, IVC, Dry weight, Current weight, 24h I/O, Loop diuretics, Nephron blockade\nContractility: Beta-blockers (Don't reflexively discontinue)\nAfterload/GDMT:\nMonitoring: Sodium, Potassium, Creatinine"
+            },
+            {
+                "text": "UTI",
+                "assessment_and_plan": "Symptoms:\nUA results:\nUCx/Sensi results:\nAbx: "
+            }
+        ],
         "chronic_problems": [],
-        "resolved_problems": [],
+        "resolved_problems": [
+            {
+                "text": "CHF",
+                "assessment_and_plan": "Phenotype: HFrEF\nChronic etiology: Ischemic, HOCM, Sarcoid, Drug-related\nAcute etiology: https://www.timeofcare.com/failures-acute-heart-failure-is-precipitated-by-failures/\nLast TTE: Date, EF, LVEDD, Other significant findings\nPreload: Edema, IVC, Dry weight, Current weight, 24h I/O, Loop diuretics, Nephron blockade\nContractility: Beta-blockers (Don't reflexively discontinue)\nAfterload/GDMT:\nMonitoring: Sodium, Potassium, Creatinine"
+            },
+            {
+                "text": "Cirrhosis",
+                "assessment_and_plan": ""
+            }
+        ],
         "labs": [],
         "micro": [],
-        "imaging": [],
+        "imaging": [
+            "TTE 8/6 Normal EF"
+        ],
         "todos": [
             {
                 "text": "Walking O2 test",
+                "completed": false
+            },
+            {
+                "text": "Goal NN -2L",
                 "completed": false
             }
         ]
@@ -85,6 +109,12 @@
         "resolved_problems": [],
         "labs": [],
         "micro": [],
-        "imaging": []
+        "imaging": [],
+        "todos": [
+            {
+                "text": "Cefepime --> Ceftriaxone",
+                "completed": false
+            }
+        ]
     }
 ]
