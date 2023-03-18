@@ -47,7 +47,6 @@
         {% endfor %}
     </ul>
     <form action="{{ url_for('add_hospital_problem', initials=patient.initials) }}" method="post">
-        <label for="hospital_problem">Hospital Problem:</label>
         <input type="text" id="hospital_problem" name="problem" required>
         <input type="submit" value="Add Hospital Problem">
     </form>
@@ -79,7 +78,6 @@
         {% endfor %}
     </ul>
     <form action="{{ url_for('add_chronic_problem', initials=patient.initials) }}" method="post">
-        <label for="chronic_problem">Chronic Problem:</label>
         <input type="text" id="chronic_problem" name="problem" required autofocus>
         <input type="submit" value="Add Chronic Problem">
     </form>
@@ -127,7 +125,6 @@
             {% endfor %}
         </ul>
         <form action="{{ url_for('add_data', initials=patient.initials, data_type=data_type) }}" method="post">
-            <label for="{{ data_type }}_data">Add {{ data_type.capitalize() }}:</label>
             <input type="text" id="{{ data_type }}_data" name="data" required>
             <input type="submit" value="Add {{ data_type.capitalize() }}">
         </form>
@@ -150,7 +147,6 @@
         {% endfor %}
     </ul>
     <form action="{{ url_for('add_todo', initials=patient.initials) }}" method="post">
-        <label for="todo">Add To Do:</label>
         <input type="text" id="todo" name="todo" required>
         <input type="hidden" name="from_page" value="patient_detail">
         <input type="submit" value="Add To Do">

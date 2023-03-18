@@ -1,32 +1,5 @@
 [
     {
-        "initials": "Arjun",
-        "hospital_problems": [
-            {
-                "text": "Cirrhosis",
-                "assessment_and_plan": ""
-            }
-        ],
-        "chronic_problems": [
-            {
-                "text": "HTN",
-                "assessment_and_plan": "Home meds:\nCurrent scheduled meds:\nGoal:\nPRNs:"
-            }
-        ],
-        "resolved_problems": [
-            {
-                "text": "AKI",
-                "assessment_and_plan": "Baseline Cr/eGFR:\nAdmit Cr/eGFR:\nCurrent Cr/eGFR:\n1-2 day Trend:\nEtiology: \nBladder/Kidney ultrasound: Deferred\nUA: No casts\nActive management: 3L IVF in last 2 days. Foley inserted.\nAvoid nephrotoxic meds\nConsider hydration for any contrast administration"
-            }
-        ],
-        "labs": [],
-        "micro": [],
-        "imaging": [
-            "3/17 TTE EF 55%"
-        ],
-        "todos": []
-    },
-    {
         "initials": "Garima Ajmani",
         "hospital_problems": [],
         "chronic_problems": [],
@@ -36,7 +9,7 @@
         "imaging": [],
         "todos": [
             {
-                "text": "Marry her",
+                "text": "Walking O2 test",
                 "completed": false
             }
         ]
@@ -48,7 +21,13 @@
         "resolved_problems": [],
         "labs": [],
         "micro": [],
-        "imaging": []
+        "imaging": [],
+        "todos": [
+            {
+                "text": "NTD",
+                "completed": false
+            }
+        ]
     },
     {
         "initials": "Ken Steinberg",
@@ -62,7 +41,17 @@
         ],
         "labs": [],
         "micro": [],
-        "imaging": []
+        "imaging": [],
+        "todos": [
+            {
+                "text": "I/O check 2pm",
+                "completed": false
+            },
+            {
+                "text": "2pm BMP",
+                "completed": false
+            }
+        ]
     },
     {
         "initials": "Gabby Berger",
@@ -71,12 +60,28 @@
         "resolved_problems": [],
         "labs": [],
         "micro": [],
-        "imaging": []
+        "imaging": [],
+        "todos": [
+            {
+                "text": "Consult Nephro",
+                "completed": false
+            }
+        ]
     },
     {
-        "initials": "Naivasha",
-        "hospital_problems": [],
-        "chronic_problems": [],
+        "initials": "Arjun Bahl",
+        "hospital_problems": [
+            {
+                "text": "AKI",
+                "assessment_and_plan": "Baseline Cr/eGFR:\nAdmit Cr/eGFR:\nCurrent Cr/eGFR:\n1-2 day Trend:\nEtiology: \nBladder/Kidney ultrasound: Deferred\nUA: No casts\nActive management: 3L IVF in last 2 days. Foley inserted.\nAvoid nephrotoxic meds\nConsider hydration for any contrast administration"
+            }
+        ],
+        "chronic_problems": [
+            {
+                "text": "HTN",
+                "assessment_and_plan": "Home meds:\nCurrent scheduled meds:\nGoal:\nPRNs:"
+            }
+        ],
         "resolved_problems": [],
         "labs": [],
         "micro": [],

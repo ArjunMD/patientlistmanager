@@ -6,6 +6,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient List Manager</title>
+    <style>
+        body {
+            background-color: #F8F8F8;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1, h4 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .patient {
+            padding: 10px;
+            border: 1px solid #DDD;
+            margin-bottom: 20px;
+            background-color: #FFF;
+        }
+
+        .patient__initials {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .patient__todos {
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        .patient__todo {
+            margin-bottom: 5px;
+        }
+
+        .add-patient {
+            margin-top: 30px;
+            border: 1px solid #DDD;
+            padding: 10px;
+            background-color: #FFF;
+        }
+
+        .add-patient__label {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .add-patient__form {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .add-patient__input {
+            flex: 1;
+            margin-right: 10px;
+            font-size: 18px;
+            padding: 5px;
+            border: 1px solid #CCC;
+        }
+
+        .add-patient__submit {
+            font-size: 18px;
+            padding: 5px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: #FFF;
+            cursor: pointer;
+        }
+
+        .add-patient__submit:hover {
+            background-color: #3E8E41;
+        }
+    </style>
 </head>
 <body>
     <h1>Patient List</h1>
@@ -20,7 +98,6 @@
         {% endfor %}
     </ul>
     <form action="{{ url_for('add_patient') }}" method="post">
-        <label for="initials">Patient Initials:</label>
         <input type="text" id="initials" name="initials" required>
         <input type="submit" value="Add Patient">
     </form>
@@ -43,16 +120,6 @@
                 </li>
             {% endfor %}
         </ul>
-        <form action="{{ url_for('add_todo', initials=patient.initials) }}" method="post">
-            <label for="todo">Add To Do:</label>
-            <input type="text" id="todo" name="todo" required>
-            <input type="hidden" name="from_page" value="patient_list">
-            <input type="submit" value="Add To Do">
-        </form>
-        <form action="{{ url_for('clear_todos', initials=patient.initials) }}" method="post">
-            <input type="hidden" name="from_page" value="patient_list">
-            <input type="submit" value="Clear To Do List">
-        </form>
     {% endfor %}
 </body>
 </html>
